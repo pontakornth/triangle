@@ -13,7 +13,7 @@ Use code coverage to find untested code and a problem with the tests.
 
 2. Run the tests using code coverage, then generate an html coverage report:
    ```bash
-   coverage run -u unittest triange_test.py
+   coverage run -m unittest triange_test.py
    coverage html
    ```
 
@@ -27,16 +27,16 @@ Use code coverage to find untested code and a problem with the tests.
 
 6. Run coverage again with the `--branch` option to see if all branches of "if" statements are covered:
    ```bash
-   coverage run --branch -u unittest triange_test.py
+   coverage run --branch -u unittest triangle_test.py
    coverage html
    ```
 
 7. What lines in the **unit test code** were not executed?     
-   Write the Line Numbers: [                  ]
+   Write the Line Numbers: [ 26, 30, 34, 38 ]
 
 8. Normally, **all** the lines of test code should be executed.  When some part of test code is not executed it may indicate a problem with the tests.  Explain the problem in the unit test code. (write you answer below).
 
-   Answer:
+   Answer: This test uses `assertRaise` that test the `with` whole block. The exception is raised on the first line so the next line don't get executed.
 
 
 
