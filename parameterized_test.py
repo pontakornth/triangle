@@ -33,13 +33,13 @@ class TriangleTest(unittest.TestCase):
         for a, b, c in self.valid_triangles:
             with self.subTest():
                 msg = f"side lengths ({a}, {b}, {c})"
-                self.assertTrue(is_triangle(a, b, c))
+                self.assertTrue(is_triangle(a, b, c), msg)
 
     def test_not_triangle(self):
         for a, b, c in self.invalid_triangles:
             with self.subTest():
                 msg = f"side lengths ({a}, {b}, {c})"
-                self.assertFalse(is_triangle(a, b, c))
+                self.assertFalse(is_triangle(a, b, c), msg)
 
     def test_invalid_argument_raises_exception(self):
         """any non-positive argument should raise ValueError"""
@@ -47,4 +47,4 @@ class TriangleTest(unittest.TestCase):
             with self.subTest():
                 msg = f"side lengths ({a}, {b}, {c})"
                 with self.assertRaises(ValueError):
-                    triangle = is_triangle(a, b, c)
+                    triangle = is_triangle(a, b, c, msg)
